@@ -26,6 +26,8 @@ public class JobData {
      * Fetch list of all values from loaded data,
      * without duplicates, for a given column.
      *
+     * MAKE SEARCH METHODS CASE-INSENSITIVE
+     *
      * @param field The column to retrieve values from
      * @return List of all of the values of the given field
      */
@@ -37,7 +39,7 @@ public class JobData {
         ArrayList<String> values = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-            String aValue = row.get(field);
+            String aValue = row.get(field);  // .toLowerCase();
 
             if (!values.contains(aValue)) {
                 values.add(aValue);
@@ -62,6 +64,8 @@ public class JobData {
      * For example, searching for employer "Enterprise" will include results
      * with "Enterprise Holdings, Inc".
      *
+     * MAKE SEARCH METHODS CASE-INSENSITIVE
+     *
      * @param column   Column that should be searched.
      * @param value Value of teh field to search for
      * @return List of all jobs matching the criteria
@@ -75,7 +79,7 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            String aValue = row.get(column).toLowerCase();
 
             if (aValue.contains(value)) {
                 jobs.add(row);
@@ -104,12 +108,14 @@ public class JobData {
      * 4. You should, on the other hand, read and understand findByColumnAndValue, since
      * your code will look similar in some ways.
      *
+     * 5. MAKE SEARCH METHODS CASE-INSENSITIVE
      *
      * @param value Value of teh field to search for
      * @return List of all jobs matching the criteria
      */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
-        JobData.value = value;
+        //JobData.value = value;
+        System.out.println("118.value = " + value);
 
         // load data, if not already loaded
         loadData();
@@ -117,10 +123,8 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-//            System.out.println("120.row = " + row);
 
-            String aValue = row.toString();
-            System.out.println("123.row = " + row.toString());
+            String aValue = row.toString().toLowerCase();
 
             if (aValue.contains(value)) {
                 jobs.add(row);

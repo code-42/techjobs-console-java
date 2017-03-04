@@ -56,16 +56,16 @@ public class TechJobs {
 
                 // How does the user want to search (e.g. by skill or employer)
                 String searchField = getUserSelection("Search by:", columnChoices);
-                System.out.println("searchField = " + searchField);
+//                System.out.println("59.searchField = " + searchField);
                 // What is their search term?
                 System.out.println("\nSearch term: ");
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    System.out.println("Search all fields not yet implemented.");
-                    printJobs(JobData.findByValue(searchTerm));
+                    // System.out.println("Some fields not yet implemented..");
+                    printJobs(JobData.findByValue(searchTerm.toLowerCase()));
                 } else {
-                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm.toLowerCase()));
                 }
             }
         }
@@ -83,7 +83,6 @@ public class TechJobs {
         Integer i = 0;
         for (String choiceKey : choices.keySet()) {
             choiceKeys[i] = choiceKey;
-            System.out.println("85.choiceKeys = " + choiceKeys[i]);
             i++;
         }
 
@@ -97,7 +96,7 @@ public class TechJobs {
             }
 
             choiceIdx = in.nextInt();
-            System.out.println("choiceIdx = " + choiceIdx);
+//            System.out.println("99.choiceIdx = " + choiceIdx);
             in.nextLine();
 
             // Validate user's input
