@@ -7,6 +7,8 @@ import java.util.Map;
 
 /**
  * Created by LaunchCode
+ * Edited by Edward Dupre March, 2017
+ * TODO: return message if search results == 0
  */
 public class TechJobs {
 
@@ -115,6 +117,10 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         // System.out.println("printJobs is not implemented yet");
+        // System.out.println("someJobs = [" + someJobs.size() + "]");
+        if(someJobs.isEmpty()){
+            System.out.println("Your search did not find anything.  Try again.");
+        }
 
         for (HashMap<String, String> row : someJobs) {
             String aValue = row.toString();
