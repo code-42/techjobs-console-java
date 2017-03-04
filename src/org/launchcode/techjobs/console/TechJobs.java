@@ -3,6 +3,7 @@ package org.launchcode.techjobs.console;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Map;
 
 /**
  * Created by LaunchCode
@@ -111,6 +112,19 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        // System.out.println("printJobs is not implemented yet");
+
+        for (HashMap<String, String> row : someJobs) {
+            String aValue = row.toString();
+
+            System.out.println("*****");  // separator at top of every job
+
+            for(Map.Entry<String, String> e : row.entrySet()){
+                System.out.println(e.getKey() + ": " + e.getValue());
+            }
+        }
+        // print ***** at the bottom of all jobs
+        System.out.println("*****");
+
     }
 }
