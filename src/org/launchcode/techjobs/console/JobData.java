@@ -20,6 +20,7 @@ public class JobData {
     private static Boolean isDataLoaded = false;
 
     private static ArrayList<HashMap<String, String>> allJobs;
+    private static String value;
 
     /**
      * Fetch list of all values from loaded data,
@@ -83,6 +84,52 @@ public class JobData {
 
         return jobs;
     }
+
+
+    /**
+     * IMPLEMENT FINDBYVALUE
+     * In the JobData class, create a new (public static) method that will search for a string
+     * within each of the columns. Here are a few observations:
+     *
+     * 1. The method that you write should not contain duplicate jobs. So, for example,
+     * if a listing has position type "Web - Front End" and name "Front end web dev"
+     * then searching for "web" should not include the listing twice.
+     *
+     * 2. As with printJobs, you should write your code in a way that if a new column
+     * is added to the data, your code will automatically search the new column as well.
+     *
+     * 3. You should not write code that calls findByColumnAndValue once for each column.
+     * Rather, utilize loops and collection methods as you did above.
+     *
+     * 4. You should, on the other hand, read and understand findByColumnAndValue, since
+     * your code will look similar in some ways.
+     *
+     *
+     * @param value Value of teh field to search for
+     * @return List of all jobs matching the criteria
+     */
+    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+        JobData.value = value;
+
+        // load data, if not already loaded
+        loadData();
+
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+//            System.out.println("120.row = " + row);
+
+            String aValue = row.toString();
+            System.out.println("123.row = " + row.toString());
+
+            if (aValue.contains(value)) {
+                jobs.add(row);
+            }
+        }
+
+        return jobs;
+    }
+
 
     /**
      * Read in data from a CSV file and store it in a list
