@@ -1,9 +1,6 @@
 package org.launchcode.techjobs.console;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -75,7 +72,7 @@ public class TechJobs {
     // ﻿Returns the key of the selected item from the choices Dictionary
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
 
-        Integer choiceIdx;
+        Integer choiceIdx = 5;
         Boolean validChoice = false;
         String[] choiceKeys = new String[choices.size()];
 
@@ -94,6 +91,14 @@ public class TechJobs {
             // Print available choices
             for (Integer j = 0; j < choiceKeys.length; j++) {
                 System.out.println("" + j + " - " + choices.get(choiceKeys[j]));
+            }
+
+//            choiceIdx = in.nextInt();  // InputMismatchException if not int
+//            in.nextLine();
+
+            while(!in.hasNextInt()){
+                String input = in.next();
+                System.out.println("Invalid choice. Try again.\n ");
             }
 
             choiceIdx = in.nextInt();  // InputMismatchException if not int
