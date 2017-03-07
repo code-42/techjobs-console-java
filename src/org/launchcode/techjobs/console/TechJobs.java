@@ -72,7 +72,7 @@ public class TechJobs {
     // ﻿Returns the key of the selected item from the choices Dictionary
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
 
-        Integer choiceIdx = 5;
+        Integer choiceIdx;
         Boolean validChoice = false;
         String[] choiceKeys = new String[choices.size()];
 
@@ -94,19 +94,19 @@ public class TechJobs {
             }
 
 //            choiceIdx = in.nextInt();  // InputMismatchException if not int
-//            in.nextLine();
+//            in.nextLine();             // insert while then get nextInt()
 
             while(!in.hasNextInt()){
                 String input = in.next();
-                System.out.println("Invalid choice. Try again.\n ");
+                System.out.println("Invalid choice: " + input + ". Try again. ");
             }
 
-            choiceIdx = in.nextInt();  // InputMismatchException if not int
+            choiceIdx = in.nextInt();
             in.nextLine();
 
             // Validate user's input
             if (choiceIdx < 0 || choiceIdx >= choiceKeys.length) {
-                System.out.println("Invalid choice. Try again.");
+                System.out.println("Invalid choice: " + choiceIdx + ". Try again.");
             } else {
                 validChoice = true;
             }
