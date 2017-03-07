@@ -8,7 +8,6 @@ import java.util.Map;
 /**
  * Created by LaunchCode
  * Edited by Edward Dupre March, 2017
- * TODO: return message if search results == 0
  */
 public class TechJobs {
 
@@ -97,8 +96,7 @@ public class TechJobs {
                 System.out.println("" + j + " - " + choices.get(choiceKeys[j]));
             }
 
-            choiceIdx = in.nextInt();
-//            System.out.println("99.choiceIdx = " + choiceIdx);
+            choiceIdx = in.nextInt();  // InputMismatchException if not int
             in.nextLine();
 
             // Validate user's input
@@ -117,9 +115,8 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         // System.out.println("printJobs is not implemented yet");
-        // System.out.println("someJobs = [" + someJobs.size() + "]");
-        if(someJobs.isEmpty()){
-            System.out.println("Your search did not find anything.  Try again.");
+         if(someJobs.isEmpty()){
+            System.out.println("No Results");
         }
 
         for (HashMap<String, String> row : someJobs) {
@@ -130,9 +127,13 @@ public class TechJobs {
             for(Map.Entry<String, String> e : row.entrySet()){
                 System.out.println(e.getKey() + ": " + e.getValue());
             }
+            // print ***** at the bottom of the search results if not empty
+            if(!someJobs.isEmpty()) {
+                System.out.println("*****");
         }
-        // print ***** at the bottom of all jobs
-        System.out.println("*****");
-
+//        // print ***** at the bottom of the search results if not empty
+//        if(!someJobs.isEmpty()) {
+//            System.out.println("*****");
+        }
     }
 }
