@@ -44,7 +44,8 @@ public class TechJobs {
 
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
-                    // Print list of skills, employers, etc
+                    // Print SORTED list of skills, employers, etc
+                    Collections.sort(results);
                     for (String item : results) {
                         System.out.println(item);
                     }
