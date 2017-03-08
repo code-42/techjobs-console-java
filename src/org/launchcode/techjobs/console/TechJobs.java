@@ -44,6 +44,7 @@ public class TechJobs {
 
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
+                    // BONUS MISSION: Sorting list results
                     // Print SORTED list of skills, employers, etc
                     Collections.sort(results);
                     for (String item : results) {
@@ -55,7 +56,7 @@ public class TechJobs {
 
                 // How does the user want to search (e.g. by skill or employer)
                 String searchField = getUserSelection("Search by:", columnChoices);
-//                System.out.println("59.searchField = " + searchField);
+
                 // What is their search term?
                 System.out.println("\nSearch term: ");
                 String searchTerm = in.nextLine();
@@ -136,10 +137,7 @@ public class TechJobs {
             // print ***** at the bottom of the search results if not empty
             if(!someJobs.isEmpty()) {
                 System.out.println("*****");
-        }
-//        // print ***** at the bottom of the search results if not empty
-//        if(!someJobs.isEmpty()) {
-//            System.out.println("*****");
+            }
         }
     }
 }

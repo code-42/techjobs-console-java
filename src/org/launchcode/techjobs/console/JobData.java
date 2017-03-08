@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Created by LaunchCode
+ * Edited by Edward Dupre
  */
 public class JobData {
 
@@ -55,6 +56,7 @@ public class JobData {
         loadData();
 
         /**
+         * BONUS MISSION
          * Returning a copy of allJobs: Look at JobData.findAll().
          * Fix this by creating a copy of allJobs.
          * (Hint: Look at the constructors in the Oracle ArrayList documentation.)
