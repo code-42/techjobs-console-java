@@ -54,7 +54,14 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        return allJobs;
+        /**
+         * Returning a copy of allJobs: Look at JobData.findAll().
+         * Fix this by creating a copy of allJobs.
+         * (Hint: Look at the constructors in the Oracle ArrayList documentation.)
+         */
+        ArrayList<HashMap<String, String>> copyOf_allJobs = new ArrayList<>(allJobs);
+
+        return copyOf_allJobs;
     }
 
     /**
